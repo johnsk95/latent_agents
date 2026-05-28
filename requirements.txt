@@ -1,0 +1,26 @@
+# ── PyTorch ───────────────────────────────────────────────────────────────────
+# Install PyTorch BEFORE this file. Match the wheel to your CUDA version:
+#   CUDA 12.8:  pip install torch --index-url https://download.pytorch.org/whl/cu128
+#   CUDA 12.4:  pip install torch --index-url https://download.pytorch.org/whl/cu124
+#   CUDA 11.8:  pip install torch --index-url https://download.pytorch.org/whl/cu118
+# See https://pytorch.org/get-started/locally/ for the full matrix.
+
+# ── HuggingFace stack ─────────────────────────────────────────────────────────
+transformers>=4.46.0
+datasets>=2.21.0
+peft>=0.13.0
+accelerate>=1.0.0      # required by trl; also used for multi-GPU launch
+trl>=0.11.0            # GRPOConfig / GRPOTrainer
+evaluate>=0.4.0        # ROUGE analysis
+rouge_score>=0.1.2     # backend used by evaluate for ROUGE metrics
+
+# ── Training utilities ────────────────────────────────────────────────────────
+numpy>=1.26.0
+tqdm>=4.66.0
+wandb>=0.18.0
+
+# ── Persona / judge (grpo_persona.py only) ────────────────────────────────────
+openai>=1.40.0
+
+# ── Optional: FlashAttention-2 (faster inference, requires CUDA + ninja) ──────
+# pip install flash-attn --no-build-isolation
